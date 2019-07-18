@@ -44,6 +44,10 @@ var threeSum = function (nums) {
         }
 
         for (let key2 in neg_array) {
+            if (key2 > key / 2) {
+                break
+            } 
+
             if (neg_array[key2] && neg_array[key - key2] && !rec_number[key2] && (key2 * 2 !== key * 1)) {
                 answer.push([key * 1, key2 * -1, (key - key2) * -1])
                 rec_number[key - key2] = 1
@@ -57,16 +61,15 @@ var threeSum = function (nums) {
             answer.push([key * -1, key / 2, key / 2])
         } 
         for (let key2 in pos_array) {
+            if (key2 > key / 2) {
+                break
+            } 
+
             if (pos_array[key2] && pos_array[key - key2] && !rec_number[key2] && (key2 * 2 !== key * 1)) {
                 answer.push([key * -1, key2, key - key2])
                 rec_number[key - key2] = 1
             }
         }
     }
-
-    console.log(pos_array, neg_array)
-
     return answer
 };
-
-threeSum([-1,0,-5,2,-1,-4])

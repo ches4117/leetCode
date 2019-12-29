@@ -1,17 +1,8 @@
 var isSymmetric = function (root) {
+    let answer = [[root.val]]
     function traverseTree(leftTree, rightTree) {
-        if (leftTree === null || rightTree == null) {
-            if (leftTree === rightTree) return true;
-            return false;
-        }
-        if (leftTree.val === rightTree.val) {
-            return (
-                traverseTree(leftTree.left, rightTree.right) *
-                traverseTree(leftTree.right, rightTree.left)
-            );
-        }
-        return false;
     }
     if (!root) return true;
-    return traverseTree(root.left, root.right);
+    traverseTree(tree)
+    return answer.push(root.left, root.right);
 };
